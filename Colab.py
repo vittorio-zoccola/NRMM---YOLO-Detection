@@ -124,3 +124,90 @@ for filename in os.listdir(images_dir):
         tif_count += 1
 print(f"Numero di file txt: {txt_count}")
 print(f"Numero di file tif: {tif_count}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# My solution to imbalanced classes
+import os
+import shutil
+
+# Percorsi delle cartelle di origine
+images_folder = '/content/NRMM-16/train/images'
+labels_folder = '/content/NRMM-16/train/labels'
+
+# Percorsi delle cartelle di destinazione
+selected_images_folder = '/content/NRMM-16/train/images1'
+selected_labels_folder = '/content/NRMM-16/train/labels1'
+
+# Creare le cartelle di destinazione se non esistono
+os.makedirs(selected_images_folder, exist_ok=True)
+os.makedirs(selected_labels_folder, exist_ok=True)
+
+# ID della classe che vogliamo selezionare
+target_class_id = 12
+
+# Funzione per spostare file se contengono la classe target
+def move_if_contains_target_class(label_file, target_class_id):
+    with open(label_file, 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            class_id = int(line.split()[0])
+            if class_id == target_class_id:
+                base_filename = os.path.basename(label_file).replace('.txt', '.jpg')
+                image_path = os.path.join(images_folder, base_filename)
+                if os.path.exists(image_path):
+                    shutil.move(label_file, os.path.join(selected_labels_folder, os.path.basename(label_file)))
+                    shutil.move(image_path, os.path.join(selected_images_folder, base_filename))
+                break
+
+# Iterare su tutti i file di annotazione
+for label_file in os.listdir(labels_folder):
+    if label_file.endswith('.txt'):
+        full_label_path = os.path.join(labels_folder, label_file)
+        move_if_contains_target_class(full_label_path, target_class_id)
+
+print("Selezione e spostamento completati.")
+
+# Contare i file nelle cartelle
+num_images = len(os.listdir(selected_images_folder))
+num_labels = len(os.listdir(selected_labels_folder))
+
+print(f"Numero di immagini nella cartella {selected_images_folder}: {num_images}")
+print(f"Numero di file di annotazione nella cartella {selected_labels_folder}: {num_labels}")
+
+
+import os
+
+# Sostituisci il percorso con il percorso corretto del tuo drive
+folder_path = '/content/NRMM-16/train/labels1'
+
+# Processa ogni file nella cartella
+for filename in os.listdir(folder_path):
+    if filename.endswith('.txt'):
+        file_path = os.path.join(folder_path, filename)
+
+        # Leggi il contenuto del file
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+
+        # Filtra le bounding box che non sono di classe 3
+        filtered_lines = [line for line in lines if line.startswith('12')]
+
+        # Scrivi le linee filtrate di nuovo nel file
+        with open(file_path, 'w') as file:
+            file.writelines(filtered_lines)
+
+
