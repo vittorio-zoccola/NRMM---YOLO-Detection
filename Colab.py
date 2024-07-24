@@ -211,3 +211,38 @@ for filename in os.listdir(folder_path):
             file.writelines(filtered_lines)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+!nvidia-smi
+
+
+import os
+HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
+print(HOME)
+
+!pip install -q supervision
+
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+
+!mkdir -p {HOME}/weights
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10m.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10b.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10x.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
+!ls -lh {HOME}/weights
+
+
