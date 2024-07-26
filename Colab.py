@@ -245,4 +245,10 @@ print(HOME)
 !wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
 !ls -lh {HOME}/weights
 
+%cd {HOME}
+!yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml
+
+while True:pass
 
