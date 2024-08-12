@@ -221,7 +221,13 @@ for filename in os.listdir(folder_path):
 
 
 
+!pip install roboflow
 
+from roboflow import Roboflow # remove extra indentation
+rf = Roboflow(api_key="//")
+project = rf.workspace("//").project("//")
+version = project.version(//)
+dataset = version.download("//")
 
 
 !nvidia-smi
