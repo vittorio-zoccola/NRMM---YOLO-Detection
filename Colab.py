@@ -242,7 +242,7 @@ data={dataset.location}/data.yaml
 
 while True:pass
 
-
+=====================================================================================================================
 
 
 ✅ #YOLOv10n + Custom Learnign Rate (VERSION N.2) 
@@ -270,7 +270,9 @@ data={dataset.location}/data.yaml \
 lr0=0.001  # Custom Learning Rate
 
 while True:pass
+    
 
+-----------------------------------------------------------------------------------------------------
 
 
 import os
@@ -296,6 +298,8 @@ data={dataset.location}/data.yaml \
 lr0=0.007  # Custom Learning Rate
 
 while True:pass
+    
+-----------------------------------------------------------------------------------------------------
 
 
 import os
@@ -322,6 +326,7 @@ lr0=0.01  # Custom Learning Rate
 
 while True:pass
 
+-----------------------------------------------------------------------------------------------------
 
 
 import os
@@ -348,7 +353,7 @@ lr0=0.05  # Custom Learning Rate
 
 while True:pass
 
-
+-----------------------------------------------------------------------------------------------------
 
 import os
 HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
@@ -375,6 +380,7 @@ lr0=0.1  # Custom Learning Rate
 while True:pass
 
 
+=====================================================================================================================
 
 
 
