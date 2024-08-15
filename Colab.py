@@ -267,9 +267,113 @@ print(HOME)
 !yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
 model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml \
+lr0=0.001  # Custom Learning Rate
+
+while True:pass
+
+
+
+import os
+HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
+print(HOME)
+
+!pip install -q supervision
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+!mkdir -p {HOME}/weights
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10m.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10b.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10x.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
+!ls -lh {HOME}/weights
+
+%cd {HOME}
+!yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml \
+lr0=0.007  # Custom Learning Rate
+
+while True:pass
+
+
+import os
+HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
+print(HOME)
+
+!pip install -q supervision
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+!mkdir -p {HOME}/weights
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10m.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10b.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10x.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
+!ls -lh {HOME}/weights
+
+%cd {HOME}
+!yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml \
 lr0=0.01  # Custom Learning Rate
 
 while True:pass
+
+
+
+import os
+HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
+print(HOME)
+
+!pip install -q supervision
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+!mkdir -p {HOME}/weights
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10m.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10b.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10x.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
+!ls -lh {HOME}/weights
+
+%cd {HOME}
+!yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml \
+lr0=0.05  # Custom Learning Rate
+
+while True:pass
+
+
+
+import os
+HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
+print(HOME)
+
+!pip install -q supervision
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+!mkdir -p {HOME}/weights
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10m.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10b.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10x.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
+!ls -lh {HOME}/weights
+
+%cd {HOME}
+!yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml \
+lr0=0.1  # Custom Learning Rate
+
+while True:pass
+
 
 
 
