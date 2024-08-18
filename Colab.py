@@ -300,7 +300,36 @@ lr0=0.007  # Custom Learning Rate
 
 
 
+=====================================================================================================================
 
+✅ #YOLOv10n VERSION N.4
+
+
+import os
+HOME = os.getcwd()
+print(HOME)
+
+# Installazione delle librerie necessarie
+!pip install -q supervision
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+# Download dei pesi YOLOv10
+!mkdir -p {HOME}/weights
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10m.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10b.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10x.pt
+!wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
+!ls -lh {HOME}/weights
+
+# Set di configurazione del training
+%cd {HOME}
+!yolo task=detect mode=train epochs=33 batch=10 plots=TRUE \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml \
+lr0=0.007  # Custom Learning Rate
+lrf=0.1  # Cosine Annealing final learning rate factor
 
 
 
