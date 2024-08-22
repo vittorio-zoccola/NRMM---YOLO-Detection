@@ -328,7 +328,6 @@ print(HOME)
 !yolo task=detect mode=train epochs=33 batch=10 plots=TRUE \
 model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml \
-lr0=0.007  # Custom Learning Rate
 lrf=0.1  # Cosine Annealing final learning rate factor
 
 
