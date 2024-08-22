@@ -330,6 +330,13 @@ model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml \
 lrf=0.1  # Cosine Annealing final learning rate factor
 
+# Generazione della Confusion Matrix e della Precision-Recall Curve
+!yolo task=detect mode=val model={HOME}/weights/yolov10n.pt data={dataset.location}/data.yaml plots=TRUE
+
+# Generazione di esempi di rilevamento (Detection Samples)
+!yolo task=detect mode=predict model={HOME}/weights/yolov10n.pt source={dataset.location}/images/ save=True
+
+
 
 
 
