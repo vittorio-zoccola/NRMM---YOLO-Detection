@@ -325,7 +325,7 @@ print(HOME)
 
 # Set di configurazione del training
 %cd {HOME}
-!yolo task=detect mode=train epochs=33 batch=10 plots=TRUE \
+!yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
 model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml \
 lrf=0.1  # Cosine Annealing final learning rate factor
