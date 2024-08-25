@@ -343,3 +343,18 @@ lrf=0.1  # Cosine Annealing final learning rate factor
 
 
 
+#Lines to detect new UK Images
+
+!pip install -q supervision
+!pip install -q git+https://github.com/THU-MIG/yolov10.git
+
+!yolo detect predict model=/content/best.pt source=/content/MAX_0429_JPG.jpg save=True
+
+
+
+
+
+
+
+
+
