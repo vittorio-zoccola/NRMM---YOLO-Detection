@@ -348,7 +348,7 @@ lrf=0.1  # Cosine Annealing final learning rate factor
 !pip install -q supervision
 !pip install -q git+https://github.com/THU-MIG/yolov10.git
 
-!yolo detect predict model=/content/best.pt source=/content/MAX_0429_JPG.jpg save=True
+!yolo detect predict model=/content/best.pt source="/content/1056.jpg" save=True
 
 
 
