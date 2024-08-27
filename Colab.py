@@ -1,3 +1,5 @@
+#MANAGEMENT AND CLEANING OF IMAGES AND ANNOTATIONS
+
 # Connection to Google Drive
 from google.colab import drive
 drive.mount('/content/drive')
@@ -127,39 +129,26 @@ print(f"Numero di file tif: {tif_count}")
 
 
 
+----------------------------------------------------------------------------------------------------------------------------------
+# SOLUTION TO IMBALANCED CLASSES
 
-
-
-
-
-
-
-
-
-
-
-
-
-# My solution to imbalanced classes
 import os
 import shutil
 
-# Percorsi delle cartelle di origine
 images_folder = '/content/NRMM-16/train/images'
 labels_folder = '/content/NRMM-16/train/labels'
 
-# Percorsi delle cartelle di destinazione
 selected_images_folder = '/content/NRMM-16/train/images1'
 selected_labels_folder = '/content/NRMM-16/train/labels1'
 
-# Creare le cartelle di destinazione se non esistono
+# Create the destination folders if they do not exist
 os.makedirs(selected_images_folder, exist_ok=True)
 os.makedirs(selected_labels_folder, exist_ok=True)
 
-# ID della classe che vogliamo selezionare
+# ID of the class we want to select
 target_class_id = 12
 
-# Funzione per spostare file se contengono la classe target
+# Function to move files if they contain the target class
 def move_if_contains_target_class(label_file, target_class_id):
     with open(label_file, 'r') as file:
         lines = file.readlines()
@@ -173,52 +162,46 @@ def move_if_contains_target_class(label_file, target_class_id):
                     shutil.move(image_path, os.path.join(selected_images_folder, base_filename))
                 break
 
-# Iterare su tutti i file di annotazione
+# Iterate over all annotation files
 for label_file in os.listdir(labels_folder):
     if label_file.endswith('.txt'):
         full_label_path = os.path.join(labels_folder, label_file)
         move_if_contains_target_class(full_label_path, target_class_id)
 
-print("Selezione e spostamento completati.")
+print("Selection and moving completed.")
 
-# Contare i file nelle cartelle
+# Count the files in the folders
 num_images = len(os.listdir(selected_images_folder))
 num_labels = len(os.listdir(selected_labels_folder))
 
-print(f"Numero di immagini nella cartella {selected_images_folder}: {num_images}")
-print(f"Numero di file di annotazione nella cartella {selected_labels_folder}: {num_labels}")
-
+print(f"Number of images in the folder {selected_images_folder}: {num_images}")
+print(f"Number of annotation files in the folder {selected_labels_folder}: {num_labels}")
 
 import os
 
-# Sostituisci il percorso con il percorso corretto del tuo drive
+# Replace the path with the correct path to your drive
 folder_path = '/content/NRMM-16/train/labels1'
 
-# Processa ogni file nella cartella
+# Process each file in the folder
 for filename in os.listdir(folder_path):
     if filename.endswith('.txt'):
         file_path = os.path.join(folder_path, filename)
 
-        # Leggi il contenuto del file
+        # Read the contents of the file
         with open(file_path, 'r') as file:
             lines = file.readlines()
 
-        # Filtra le bounding box che non sono di classe 3
+        # Filter out bounding boxes that are not of class 12
         filtered_lines = [line for line in lines if line.startswith('12')]
 
-        # Scrivi le linee filtrate di nuovo nel file
+        # Write the filtered lines back to the file
         with open(file_path, 'w') as file:
             file.writelines(filtered_lines)
 
+-----------------------------------------------------------------------------------------------------------------------------
 
 
-
-=====================================================================================================================
-
-
-
-
-✅ #YOLOv10n VERSION N.1 
+#YOLOv10 Base Configuration 
 
 import os
 HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
@@ -243,10 +226,8 @@ data={dataset.location}/data.yaml
 
 while True:pass
 
-=====================================================================================================================
 
-✅ #YOLOv10n VERSION N.2 
-
+#YOLOv10 Extended Training
 
 import os
 HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
@@ -271,10 +252,8 @@ data={dataset.location}/data.yaml \
 
 while True:pass
     
-=====================================================================================================================
 
-✅ #YOLOv10n VERSION N.3 
-
+#YOLOv10 Extended Training with Custom Learning Rate 
 
 import os
 HOME = os.getcwd()  # Use os.getcwd() instead of os.getcw()
@@ -299,11 +278,7 @@ data={dataset.location}/data.yaml \
 lr0=0.007  # Custom Learning Rate
 
 
-
-=====================================================================================================================
-
-✅ #YOLOv10n VERSION N.4
-
+#YOLOv10 Extended Training with Cosine Annealing
 
 import os
 HOME = os.getcwd()
@@ -329,32 +304,3 @@ print(HOME)
 model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml \
 lrf=0.1  # Cosine Annealing final learning rate factor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Lines to detect new UK Images
-
-!pip install -q supervision
-!pip install -q git+https://github.com/THU-MIG/yolov10.git
-
-!yolo detect predict model=/content/best.pt source="/content/1056.jpg" save=True
-
-
-
-
-
-
-
-
-
