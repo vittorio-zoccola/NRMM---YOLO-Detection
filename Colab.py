@@ -288,7 +288,7 @@ print(HOME)
 !pip install -q supervision
 !pip install -q git+https://github.com/THU-MIG/yolov10.git
 
-# Download of Yolo's weights
+# Download of Yolo weights
 !mkdir -p {HOME}/weights
 !wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
 !wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
