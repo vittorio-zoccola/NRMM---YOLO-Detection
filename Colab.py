@@ -284,11 +284,11 @@ import os
 HOME = os.getcwd()
 print(HOME)
 
-# Installazione delle librerie necessarie
+# Install libraries
 !pip install -q supervision
 !pip install -q git+https://github.com/THU-MIG/yolov10.git
 
-# Download dei pesi YOLOv10
+# Download of Yolo's weights
 !mkdir -p {HOME}/weights
 !wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10n.pt
 !wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10s.pt
@@ -298,7 +298,7 @@ print(HOME)
 !wget -P {HOME}/weights -q https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt
 !ls -lh {HOME}/weights
 
-# Set di configurazione del training
+# Training Configuration
 %cd {HOME}
 !yolo task=detect mode=train epochs=25 batch=8 plots=TRUE \
 model={HOME}/weights/yolov10n.pt \
